@@ -35,25 +35,7 @@ class AmazonController{
         }
     }
 
-    getDataFromDB = async (req,res) => {
-        let data = [];
-        let query = req.query.query;
-        if(query){
-            try {
-                data = await Producto.find({
-                    $or:[
-                        {title: {$regex: query, $options: "i"}},
-                        {price: {$regex: query, $options: "i"}},
-                        {shop: {$regex: query, $options: "i"}},
-                        {query: {$regex: query, $options: "i"}}
-                    ]});
-            }catch(e){
-                console.log(e);
-            }
-        }
-        res.render("index", {data: data});
-    }
-        
+    
 
     close = async () => {
         await this.scraper.close();
