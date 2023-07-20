@@ -1,0 +1,12 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+        a(href="/") Home
+        form(action="/scrap", method="post")
+            label(for="query") Query
+            input(type="text", name="query", id="query")  
+            button(type="submit") Buscar 

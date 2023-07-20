@@ -1,0 +1,13 @@
+version: '3'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo-technoscraper
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: ${DB_NAME}
+    ports:
+      - ${DB_PORT}:27017
+    volumes:
+      - ./data/mongo:/data/db
+    
