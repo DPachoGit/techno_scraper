@@ -12,10 +12,10 @@ class PcCompParser {
         return card.querySelector(".product-card__title").textContent.trim();
     }
     getPrice = (card) => {
-        return card.querySelector(".sc-kOtXPA").textContent.trim();
+        return card.querySelector(".product-card__price-container").textContent.trim();
     }
     getImage = (card) => {
-        return card.querySelector(".sc-gdlCkj").getAttribute("src");
+        return card.querySelector("img").getAttribute("src");
     }
     getUrl = (card) => {
         return "https://www.pccomponentes.com"+card.querySelector("a").getAttribute("href");
@@ -42,8 +42,6 @@ class PcCompParser {
         }
         return cardsArray;
     }
-
-
 }
 
 export default PcCompParser;

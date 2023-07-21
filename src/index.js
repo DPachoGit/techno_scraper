@@ -22,7 +22,7 @@ app.post('/scrap', async (req, res) => {
     const scrapController = new ScrapController();
     await scrapController.init();
     let query  = req.body.query;
-    let pages = 4;
+    let pages = 1;
     const content = await scrapController.getData(query, pages);
     res.send(content);
     }

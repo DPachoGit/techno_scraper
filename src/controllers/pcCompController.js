@@ -1,11 +1,11 @@
-import Scraper from "../scraper/scraper.js";
-import Parser from "../parser/parser.js";
+import pcComController from "../scraper/pcCompScraper.js";
+import PcCompParser from "../parser/parserPcComp.js";
 import Producto from "../models/producto.js";
 
 
 class PcCompController{
     constructor (){
-        this.scraper = new Scraper();
+        this.scraper = new pcComController();
         this.parser = null;
     }
 
@@ -15,8 +15,8 @@ class PcCompController{
 
     getData = async (query, pages) => {
         const content = await this.scraper.multiScrap(query, pages);
-        this.parser = new Parser(content);
-        const cards = this.parser.getCardsArray();
+        this.parser = new PcCompParser(content);
+        const cards = await this.parser.getCardsArray();
         this.saveData(query,cards);
         this.close();
         return cards;

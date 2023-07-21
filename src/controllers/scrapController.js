@@ -39,8 +39,6 @@ class ScrapController {
         }
         res.render("index", {data: data});
     }
-        
-
 }
 
 export default ScrapController;
