@@ -1,6 +1,6 @@
 import {JSDOM} from 'jsdom';
 
-class Parser {
+class PcCompParser {
     constructor(html) {
         this.html = html;
         this.dom = new JSDOM(this.html);
@@ -18,7 +18,7 @@ class Parser {
         return card.querySelector(".sc-gdlCkj").getAttribute("src");
     }
     getUrl = (card) => {
-        return "https://amazon.es"+card.querySelector("a").getAttribute("href");
+        return "https://www.pccomponentes.com"+card.querySelector("a").getAttribute("href");
     }
     getCard = (card) => {
         return {
@@ -46,4 +46,4 @@ class Parser {
 
 }
 
-export default Parser;
+export default PcCompParser;
