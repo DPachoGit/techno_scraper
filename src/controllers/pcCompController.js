@@ -3,7 +3,7 @@ import Parser from "../parser/parser.js";
 import Producto from "../models/producto.js";
 
 
-class pcCompController{
+class PcCompController{
     constructor (){
         this.scraper = new Scraper();
         this.parser = null;
@@ -60,4 +60,4 @@ class pcCompController{
     }
 }
 
-export default pcCompController;
+export default PcCompController;
