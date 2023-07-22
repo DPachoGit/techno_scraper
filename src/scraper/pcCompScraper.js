@@ -1,5 +1,5 @@
 import puppeteer from "puppeteer";
-import fs from "fs";
+
 
 class PcCompScraper{
     constructor(headless = false){
@@ -28,7 +28,6 @@ class PcCompScraper{
         for(let i = 1; i <= pages; i++){
             content += await this.scrap(query, i);
         }            
-        let guardarContenido = fs.writeFileSync("pcCompTest123.html", content)
         return content;
     }
 }

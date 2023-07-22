@@ -6,7 +6,6 @@ class ScrapController {
     constructor (){
         this.amazonController = new AmazonController();
         this.pcComController = new PcCompController();
-
     }
 
     init = async () => {
@@ -15,9 +14,8 @@ class ScrapController {
     }
 
     getData = async (query, pages) => {
-        // let AmazonContent = await this.amazonController.getData(query, pages);
-        let content = await this.pcComController.getData(query, pages);
-        // const content = AmazonContent.concat(pcCompContent);
+        let content = await this.amazonController.getData(query, pages);
+        content = content.concat(await this.pcComController.getData(query, pages));
         return content;
     }
 
