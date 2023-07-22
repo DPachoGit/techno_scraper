@@ -18,7 +18,7 @@ class PcCompParser {
         return card.querySelector("img").getAttribute("src");
     }
     getUrl = (card) => {
-        return "https://www.pccomponentes.com"+card.querySelector("a").getAttribute("href");
+        return card.querySelector("a").getAttribute("href");
     }
     getCard = (card) => {
         return {
