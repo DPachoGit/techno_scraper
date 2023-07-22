@@ -1,5 +1,5 @@
 import pcComController from "../scraper/pcCompScraper.js";
-import PcCompParser from "../parser/parserPcComp.js";
+import PcCompParser from "../parser/PcCompParser.js";
 import Producto from "../models/producto.js";
 
 
