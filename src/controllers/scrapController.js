@@ -1,20 +1,24 @@
 import AmazonController from "./amazonController.js";
+import NeoController from "./neoController.js";
 import PcCompController from "./pcCompController.js";
 import Producto from "../models/producto.js";
 
 class ScrapController {
     constructor (){
         this.amazonController = new AmazonController();
+        this.neoController = new NeoController();
         this.pcComController = new PcCompController();
     }
 
     init = async () => {
         await this.amazonController.init();
+        await this.neoController.init();
         await this.pcComController.init();
     }
 
     getData = async (query, pages) => {
         let content = await this.amazonController.getData(query, pages);
+        content = content.concat(await this.neoController.getData(query));
         content = content.concat(await this.pcComController.getData(query, pages));
         return content;
     }

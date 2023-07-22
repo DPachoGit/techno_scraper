@@ -1,0 +1,26 @@
+#data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+    margin: 20px auto;
+}
+
+#data > article {
+    margin: 0 5px;
+    box-sizing: border-box;
+    max-width: 20%;
+}
+
+#data > article > img {
+    width: 100%;
+    max-height: 20%;
+}
+
+@media screen and (max-width: 768px) {
+    #data > article {
+        max-width: 100%;
+    }
+}
+   

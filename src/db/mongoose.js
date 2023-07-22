@@ -3,10 +3,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const host = process.env.DB_HOST || 'localhost';
-const port = process.env.DB_PORT || 27017;
+//const host = 'localhost';
+const port =  27017;
 const database = process.env.DB_NAME || 'test';
 const MONGODB_URI = `mongodb://${host}:${port}/${database}`;
-
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,

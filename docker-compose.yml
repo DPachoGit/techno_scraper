@@ -10,4 +10,19 @@ services:
       - ${DB_PORT}:27017
     volumes:
       - ./data/mongo:/data/db
-    
+  scraper:
+    build: .
+    container_name: technoscraper
+    restart: always
+    ports:
+      - ${APP_PORT}:3000
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      APP_PORT: ${APP_PORT}
+      APP_HOST: ${APP_HOST}
+    volumes:
+      - .:/app
+      - /app/node_modules
+
