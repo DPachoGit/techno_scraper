@@ -9,7 +9,12 @@ class PcCompScraper{
         this.baseURL = new URL("https://www.pccomponentes.com/buscar/");
     }
     init = async () => {
-        this.browser = await puppeteer.launch({headless: this.headless});
+        this.browser = await puppeteer.launch(
+        {
+            headless: this.headless,
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+
+        });
         this.page = await this.browser.newPage();
     }
     close = async () => {
