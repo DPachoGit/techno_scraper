@@ -1,22 +1,26 @@
 import AmazonController from "./amazonController.js";
+import wortenController from "./wortenController.js";
 import PcCompController from "./pcCompController.js";
 import Producto from "../models/producto.js";
 
 class ScrapController {
     constructor (){
         this.amazonController = new AmazonController();
+        this.wortenController = new wortenController();
         this.pcComController = new PcCompController();
 
     }
 
     init = async () => {
         await this.amazonController.init();
+        await this.wortenController.init();
         await this.pcComController.init();
     }
 
     getData = async (query, pages) => {
         // let AmazonContent = await this.amazonController.getData(query, pages);
-        let content = await this.pcComController.getData(query, pages);
+        // let content = await this.pcComController.getData(query, pages);
+        let content = await this.wortenController.getData(query, pages);
         // const content = AmazonContent.concat(pcCompContent);
         return content;
     }
